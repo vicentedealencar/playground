@@ -1,0 +1,14 @@
+{
+  "name": "playground-classifier",
+  "version": "0.1.0",
+  "author": "Vicente de Alencar <contato@vicentedealencar.com>",
+  "description": "train and then classify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vicentedealencar/playground.git"
+  },
+  "dependencies" : {
+    "classifier"   :  "0.1.0",
+    "cli-prompt" :  "0.1.0"
+  }
+}
