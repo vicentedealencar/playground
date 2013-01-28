@@ -1,0 +1,9 @@
+{
+  "name": "hello-zombie",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "zombie": "2.0.0-alpha11",
+    "contextify": "~0.1.3"
+  }
+}
