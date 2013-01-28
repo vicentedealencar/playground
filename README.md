@@ -1,5 +1,4 @@
-playground
-==========
+# playground
 
 repo where I keep my random stuff
 
@@ -8,5 +7,5 @@ repo where I keep my random stuff
 - [ ] a task list item
 - [ ] list syntax required
 - [ ] normal **formatting**, @vicentedealencar, #1234 refs
-- [ ] incomplete
+- [x] incomplete
 - [x] completed
