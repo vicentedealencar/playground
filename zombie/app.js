@@ -6,8 +6,8 @@ browser.visit('/', function() {
 	console.log(browser.text('.port'));
 
 	browser
-	.fill('email', 'zombie')
-	.fill('mensagem', 'zombie')
+	.fill('subject', 'zombie')
+	.fill('body', 'zombie:' + new Date())
 	.pressButton('enviar')
 	.then(function() {
 		//TODO: fix that
