@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>cookie-watcher</title>
+</head>
+<body>
+	<div id="asdasdasd"></div>
+
+	<script type="text/javascript" src="cookie-watcher.js"></script>
+	<script>
+		if (!CW.get('asdasdasd')) {
+
+			CW.set('asdasdasd', 0);
+			document.getElementById('asdasdasd').innerHTML = 0;
+		} else {
+			CW.set('asdasdasd', CW.get('asdasdasd') + 'a');
+		}
+
+		CW.on('asdasdasd', function (asdasdasd) {
+			document.getElementById('asdasdasd').innerHTML = asdasdasd;
+		});
+	</script>
+</body>
+</html>
