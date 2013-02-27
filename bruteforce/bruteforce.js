@@ -8,33 +8,39 @@
 //     console.log('marks pass: ' + pass);
 //   });
 
-var bruteforce = function(alphabet, test) {
+var bruteforce = function(alphabet, evaluate, success) {
 	var max = 8;
-	var letters = alphabet.split('');
+	var symbols = alphabet.split('');
+	var timeouts = [];
 
-	return recurse('');
+	recurse('');
 
 	function recurse (currentTry) {
+		//console.log(timeouts.map(function(each) {return each._onTimeout.toString()}));
 		console.log(currentTry);
 
-		if(test(currentTry)) {
-			return currentTry;
+		if(evaluate(currentTry)) {
+			clearTimeouts();
+			success(currentTry);
+			return;
 		}
 
 		if(currentTry.length >= max) {
-			return null;
+			return;
 		}
 
-		for (var i = letters.length - 1; i >= 0; i--) {
-			var result = recurse(currentTry + letters[i]);
-			if(result) {
-				return result;
-			}
-		};
+		symbols.forEach(function(symbol) {
+			timeouts.push(setTimeout(function() {
+					recurse(currentTry + symbol);
+				}, 0));
+		});
+	};
 
-		return null;
-	}
-
+	function clearTimeouts() {
+		timeouts.forEach(function(each) {
+			clearTimeout(each);
+		});
+	};
 };
 
 module.exports = bruteforce;
