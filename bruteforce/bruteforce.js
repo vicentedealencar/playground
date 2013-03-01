@@ -19,11 +19,12 @@ var bruteforce = function(alphabet, evaluate, success) {
 		//console.log(timeouts.map(function(each) {return each._onTimeout.toString()}));
 		console.log(currentTry);
 
-		if(evaluate(currentTry)) {
-			clearTimeouts();
-			success(currentTry);
-			return;
-		}
+		evaluate(currentTry, function(matches) {
+			if (matches) {
+				clearTimeouts();
+				success(currentTry);
+			}
+		});
 
 		if(currentTry.length >= max) {
 			return;
@@ -34,13 +35,13 @@ var bruteforce = function(alphabet, evaluate, success) {
 					recurse(currentTry + symbol);
 				}, 0));
 		});
-	};
+	}
 
 	function clearTimeouts() {
 		timeouts.forEach(function(each) {
 			clearTimeout(each);
 		});
-	};
+	}
 };
 
 module.exports = bruteforce;
