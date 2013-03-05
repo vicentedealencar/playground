@@ -1,0 +1,9 @@
+{
+  "name": "dashboard",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "typescript-require": "~0.1.7",
+    "express": "~3.1.0"
+  }
+}

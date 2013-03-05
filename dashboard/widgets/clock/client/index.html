@@ -1,0 +1,15 @@
+<script>
+function ClockController ($scope, $timeout) {
+	$scope.time = Date.now();
+
+	(function someWork(){
+		$scope.time = Date.now();
+		$timeout(someWork, 1000);
+	})();
+}
+</script>
+
+<div ng-controller="ClockController">
+	<span>{{time | date:'dd/MM/yy'}}</span>
+	<h2>{{time | date:'HH:mm:ss'}}</h2>
+</div>
