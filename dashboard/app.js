@@ -28,8 +28,16 @@ app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
 app.get('/', function (req, res) {
+	var links = [];
+	Object.keys(db.users).forEach(function (user) {
+		Object.keys(db.users[user].dashboards).forEach(function (dashboard) {
+			links.push('/' + user + '/' + dashboard);
+		})
+	})
+
 	res.render('index', {
-		title: 'Hello!!'
+		title: 'Hello!!',
+		links: links
 	});
 });
 

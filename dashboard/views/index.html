@@ -2,4 +2,10 @@
 
 <h1><%= title %></h1>
 
+<ul>
+	<% links.forEach(function(link){ %>
+	<li><a href="<%= link %>"><%= link %></a></li>
+	<% }) %>
+</ul>
+
 <% include footer.html %>
