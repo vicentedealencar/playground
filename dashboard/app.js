@@ -14,6 +14,10 @@ var db = {
 						clock:
 						{
 							color: 'black'
+						},
+						instagram:
+						{
+							tag: 'Animal'
 						}
 					}
 				}
@@ -44,12 +48,16 @@ app.get('/', function (req, res) {
 app.get('/:user/:dashboard', function(req, res) {
 	//TODO: verify if breaks
 	var widgets = db.users[req.params.user].dashboards[req.params.dashboard].widgets;
+	var asd = [];
 
 	Object.keys(widgets).forEach(function (key) {
-		res.write(key +' - '+JSON.stringify(widgets[key]));
+		asd.push(key +' - '+JSON.stringify(widgets[key]));
 	});
 
-	res.end();
+	
+	res.render('dashboard', {
+		title: asd
+	});
 });
 
 app.listen(3000);
