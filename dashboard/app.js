@@ -26,6 +26,7 @@ var db = {
 	}
 };
 
+var fs = require('fs');
 var express = require('express');
 var app = express();
 app.engine('.html', require('ejs').__express);
@@ -48,15 +49,12 @@ app.get('/', function (req, res) {
 app.get('/:user/:dashboard', function(req, res) {
 	//TODO: verify if breaks
 	var widgets = db.users[req.params.user].dashboards[req.params.dashboard].widgets;
-	var asd = [];
 
-	Object.keys(widgets).forEach(function (key) {
-		asd.push(key +' - '+JSON.stringify(widgets[key]));
-	});
-
-	
 	res.render('dashboard', {
-		title: asd
+		user: req.params.user,
+		dashboard: req.params.dashboard,
+		widgets: widgets,
+		html: fs.readFileSync('widgets/clock/client/index.html')
 	});
 });
 
