@@ -1,0 +1,8 @@
+{
+  "name": "woot-api",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "jsdom": "~0.5.2"
+  }
+}
